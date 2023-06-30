@@ -1,0 +1,10 @@
+[Unit]
+Description=journal-monitor
+Requires=network.target
+After=network.target
+
+[Service]
+ExecStart=/usr/local/journal-monitor/monitor.py
+
+[Install]
+WantedBy=network-online.target
