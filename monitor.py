@@ -26,7 +26,9 @@ def get_chat_id():
 
 def get_last_entries():
     j = journal.Reader()
-    j.add_match(_TRANSPORT='kernel', PRIORITY=PRIOR.index(config.PRIORITY_STR))
+    j.add_match(_TRANSPORT='kernel')
+    j.add_match(_TRANSPORT='syslog')
+    j.add_match(PRIORITY=PRIOR.index(config.PRIORITY_STR))
     j.seek_realtime(datetime.now() - timedelta(seconds=config.TIMEOUT_SEC))
 
     to_send = []
