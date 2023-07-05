@@ -73,8 +73,6 @@ class journalMonitor():
             except Exception as e:
                 print(e)
             time.sleep(self.options.timeout)
-        else:
-            self.sendMessage(self.get_last_entries())
 
 
 if __name__ == "__main__":
