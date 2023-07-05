@@ -43,7 +43,7 @@ class journalMonitor():
 
     def sendMessage(self, text):
         if text:
-            r = requests.post(f"{config.API_SERVER}/sendMessage", params={"chat_id": config.CHAT_ID, "text": text})
+            r = requests.post(f"{config.API_SERVER}/sendMessage", params={"chat_id": config.CHAT_ID, "text": text[-4096:]})
             res = r.json()
             if not res['ok']:
                 raise Exception(f"{res['error_code']}: {res['description']}")
